@@ -216,19 +216,16 @@ const Main = styled.main`
 
 const ProductSection = styled.section`
   display: flex;
-  gap: 50px;
 `;
 
 const ProductImage = styled.div`
   margin-left: -126px;
-  flex: 1 1;
   display: flex;
   align-items: center;
   background-color: #eee;
+  padding: 64px 0;
   div {
-    top: 2vh;
-    width: 760px;
-    height: 860px;
+    width: 755px;
     text-align: center;
   }
   img {
@@ -239,7 +236,9 @@ const ProductImage = styled.div`
 `;
 
 const ProductDetails = styled.div`
-  padding-top: 60px;
+  padding-top: 50px;
+  width: 440px;
+  margin-left: 30px;
 `;
 const Title = styled.h2`
   font-size: 16px;
@@ -268,7 +267,7 @@ const ProductName = styled.p`
 const ProductOrigem = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 25px 0;
+  padding: 12px 0;
   p {
     font-size: 16px;
     font-weight: 500;
@@ -333,7 +332,7 @@ const ButtonAddToCart = styled.button`
   background-color: #2d2d2d;
   border: none;
   padding: 10px 10px;
-  margin: 20px 0;
+  margin: 10px 0;
   cursor: pointer;
   border-radius: 2px;
   transition: all ease 0.5s;
@@ -351,10 +350,9 @@ const FreDelivery = styled.p`
 `;
 
 const TastingNotes = styled.div`
-  margin-top: 50px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   h2 {
     font-size: 24px;
     font-weight: 500;
@@ -365,6 +363,7 @@ const TastingNotes = styled.div`
   div {
     display: flex;
     gap: 15px;
+    margin-bottom: 15px;
     p {
       font-weight: 500;
       font-size: 16px;
@@ -465,6 +464,9 @@ const TheGrapes = styled.div`
     display: flex;
     align-items: center;
     margin-top: 32px;
+    img{
+      width: 40px;
+    }
 
     p {
       font-weight: 500;
