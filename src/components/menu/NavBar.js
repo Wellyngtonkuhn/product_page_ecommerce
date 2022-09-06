@@ -58,11 +58,12 @@ const Header = styled.header`
   left: 0;
   right: 0;
   height: 64px;
-  max-width: 1228px;
+  width: 100vw;
   margin-left: auto;
   margin-right: auto;
   padding-left: 64px;
   padding-right: 64px;
+  box-shadow:0px 0px 19px -4px rgb(0 0 0 / 20%);
 `;
 
 const Nav = styled.nav`
@@ -70,7 +71,9 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  width: 100%;
+  max-width: 1228px;
+  padding-left: 64px;
+  padding-right: 64px;
 `;
 
 const Logo = styled.div``;
