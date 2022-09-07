@@ -57,12 +57,14 @@ const Header = styled.header`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 9;
   height: 64px;
   width: 100vw;
   margin-left: auto;
   margin-right: auto;
   padding-left: 64px;
   padding-right: 64px;
+  background-color: #ffffff;
   box-shadow:0px 0px 19px -4px rgb(0 0 0 / 20%);
 `;
 

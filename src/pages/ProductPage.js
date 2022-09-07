@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styled from "styled-components";
 import Wine from "../assets/wine.png";
@@ -8,8 +7,6 @@ import Lingua from "../assets/lingua.png";
 
 export default function ProductPage() {
   const [itemCounter, setIttemCounter] = useState(1);
-
-  console.log(itemCounter);
 
   const handleCounterItemAdd = () => {
     setIttemCounter(itemCounter + 1);
@@ -20,6 +17,10 @@ export default function ProductPage() {
       setIttemCounter(itemCounter - 1);
     }
   };
+
+  useEffect(()=>{
+      document.title = 'Wachau - Rainer Wess | Lexir'
+  },[])
 
   return (
     <>
@@ -65,7 +66,7 @@ export default function ProductPage() {
               </div>
               <ButtonAddToCart>
                 <span>Add to cart</span>
-                <span>$18,99</span>
+                <span>€18,99</span>
               </ButtonAddToCart>
               <FreDelivery>
                 VAT included. Free delivery on orders €30+
@@ -453,6 +454,7 @@ const Occasion = styled.div`
 
 const TheGrapes = styled.div`
   margin-top: 40px;
+  padding-bottom: 64px;
   h2 {
     font-size: 24px;
     font-weight: 500;
