@@ -3,7 +3,11 @@ import { NewContextProvider } from "../../context/ContextProvider";
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBasketShopping, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBasketShopping,
+  faUser,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
   const { productLocalStorage, handleGetItemsLocalStorage } =
@@ -16,6 +20,31 @@ export default function Navbar() {
   return (
     <>
       <Header>
+        <MenuBurger>
+          <div>
+            <a>
+              <FontAwesomeIcon icon={faBars} />
+            </a>
+          </div>
+          <div>
+            <a>
+              <img
+                src="https://www.datocms-assets.com/30257/1614688752-logo-black.svg"
+                alt="Lexir_Logo"
+              />
+            </a>
+          </div>
+          <div>
+            <a>
+              <FontAwesomeIcon icon={faBasketShopping} />
+            </a>
+            {productLocalStorage && (
+              <CartItems>
+                <p>{productLocalStorage.Amount}</p>
+              </CartItems>
+            )}
+          </div>
+        </MenuBurger>
         <Nav>
           <Logo>
             <a>
@@ -80,16 +109,43 @@ const Header = styled.header`
   padding-right: 64px;
   background-color: #ffffff;
   box-shadow: 0px 0px 19px -4px rgb(0 0 0 / 20%);
+  @media (max-width: 1050px) {
+    right: unset;
+  }
+`;
+
+const MenuBurger = styled.nav`
+  a {
+    cursor: pointer;
+  }
+  @media (max-width: 1050px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media (min-width: 1051px) {
+    display: none;
+  }
 `;
 
 const Nav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  max-width: 1228px;
-  padding-left: 64px;
-  padding-right: 64px;
+  @media (max-width: 1050px) {
+    display: none;
+  }
+
+  @media (min-width: 1051px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: 1228px;
+    margin: auto;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
 `;
 
 const Logo = styled.div``;
@@ -135,4 +191,17 @@ const CartItems = styled.div`
   color: #fff;
   font-size: 12px;
   line-height: 8px;
+
+  @media (max-width: 1050px) {
+    position: absolute;
+    top: 14px;
+    right: 45px;
+    padding: 6px 7px;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background: #1c8c64;
+    color: #fff;
+    font-size: 12px;
+    line-height: 8px;
+  }
 `;
