@@ -1,3 +1,5 @@
+import ContextProvider from "./context/ContextProvider";
+
 import Navbar from "./components/menu/NavBar";
 import ProductPage from "./pages/ProductPage";
 import Footer from "./components/footer/Footer";
@@ -5,11 +7,13 @@ import Footer from "./components/footer/Footer";
 export default function App() {
   return (
     <>
-      <Navbar />
+      <ContextProvider>
+        <Navbar />
 
-      <ProductPage />
+        <ProductPage />
 
-      <Footer />
+        <Footer />
+      </ContextProvider>
     </>
   );
 }

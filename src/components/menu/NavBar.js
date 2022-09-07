@@ -1,9 +1,18 @@
+import { useContext, useEffect } from "react";
+import { NewContextProvider } from "../../context/ContextProvider";
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
+  const { productLocalStorage, handleGetItemsLocalStorage } =
+    useContext(NewContextProvider);
+
+  useEffect(() => {
+    handleGetItemsLocalStorage();
+  }, []);
+
   return (
     <>
       <Header>
@@ -44,6 +53,11 @@ export default function Navbar() {
               <a>
                 <FontAwesomeIcon icon={faBasketShopping} />
               </a>
+              {productLocalStorage && (
+                <CartItems>
+                  <p>{productLocalStorage.Amount}</p>
+                </CartItems>
+              )}
             </Options>
           </MenuOptions>
         </Nav>
@@ -65,7 +79,7 @@ const Header = styled.header`
   padding-left: 64px;
   padding-right: 64px;
   background-color: #ffffff;
-  box-shadow:0px 0px 19px -4px rgb(0 0 0 / 20%);
+  box-shadow: 0px 0px 19px -4px rgb(0 0 0 / 20%);
 `;
 
 const Nav = styled.nav`
@@ -104,7 +118,21 @@ const Ul = styled.ul`
 const Options = styled.div`
   display: flex;
   gap: 15px;
+  position: relative;
   a {
     cursor: pointer;
   }
+`;
+
+const CartItems = styled.div`
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background: #1c8c64;
+  color: #fff;
+  font-size: 12px;
+  line-height: 8px;
 `;

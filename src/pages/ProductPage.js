@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { NewContextProvider } from "../context/ContextProvider";
 
 import styled from "styled-components";
 import Wine from "../assets/wine.png";
@@ -7,6 +8,10 @@ import Lingua from "../assets/lingua.png";
 
 export default function ProductPage() {
   const [itemCounter, setIttemCounter] = useState(1);
+  const productName = "Wachua";
+  const price = 18.99;
+
+  const { handleAddProductToLocalStorage } = useContext(NewContextProvider);
 
   const handleCounterItemAdd = () => {
     setIttemCounter(itemCounter + 1);
@@ -18,9 +23,9 @@ export default function ProductPage() {
     }
   };
 
-  useEffect(()=>{
-      document.title = 'Wachau - Rainer Wess | Lexir'
-  },[])
+  useEffect(() => {
+    document.title = "Wachau - Rainer Wess | Lexir";
+  }, []);
 
   return (
     <>
@@ -34,7 +39,7 @@ export default function ProductPage() {
 
           <ProductDetails>
             <Title>Rainer wass</Title>
-            <SubTitle>Wachua</SubTitle>
+            <SubTitle>{productName}</SubTitle>
             <ProductName>
               Gruner veltliner
               <span> 2018</span>
@@ -64,9 +69,17 @@ export default function ProductPage() {
                   <button onClick={() => handleCounterItemAdd()}>+</button>
                 </AddMoreItem>
               </div>
-              <ButtonAddToCart>
+              <ButtonAddToCart
+                onClick={() =>
+                  handleAddProductToLocalStorage(
+                    itemCounter,
+                    productName,
+                    price
+                  )
+                }
+              >
                 <span>Add to cart</span>
-                <span>€18,99</span>
+                <span>€{price}</span>
               </ButtonAddToCart>
               <FreDelivery>
                 VAT included. Free delivery on orders €30+
@@ -466,7 +479,7 @@ const TheGrapes = styled.div`
     display: flex;
     align-items: center;
     margin-top: 32px;
-    img{
+    img {
       width: 40px;
     }
 
