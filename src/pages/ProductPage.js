@@ -28,6 +28,7 @@ import {
 
 export default function ProductPage() {
   const [itemCounter, setIttemCounter] = useState(1);
+  
   const productName = "Wachua";
   const price = 18.99;
 
