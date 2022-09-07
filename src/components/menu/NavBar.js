@@ -146,6 +146,10 @@ const Nav = styled.nav`
     padding-left: 64px;
     padding-right: 64px;
   }
+
+  @media (min-width: 1850px) {
+    padding: 0 128px;
+  }
 `;
 
 const Logo = styled.div``;

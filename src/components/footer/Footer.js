@@ -115,6 +115,7 @@ const FirstRow = styled.div`
   max-width: 1228px;
   padding-left: 64px;
   padding-right: 64px;
+  margin: auto;
 
   @media (max-width: 1050px) {
     display: flex;
@@ -199,6 +200,8 @@ const SecondRow = styled.div`
   display: flex;
   align-items: center;
   padding: 0 64px;
+  max-width: 1228px;
+  margin: auto;
   gap: 172px;
   div p {
     color: #fff;
